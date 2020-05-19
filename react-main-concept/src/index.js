@@ -7,6 +7,21 @@ import * as serviceWorker from './serviceWorker';
 function formatName(user){
     return user.firstName +' '+user.lastName;
 }
+
+function greeting(user){
+    if(user)
+        return (
+                    <div>
+                        <h1 tabIndex="0">hello, {formatName(user)}</h1>
+                        <img src={user.avatarUrl}></img>
+                    </div>
+                  );
+     else
+        return (
+                    <h1>Hello Strangers</h1>
+                );
+}
+
 const user = {
     firstName: 'Sudhir',
     lastName: 'Kumar'
@@ -16,7 +31,7 @@ const element = <h1>Hello , {formatName(user)}</h1>;
 
 
 ReactDOM.render(
-  element,
+  greeting(user),
   document.getElementById('root')
 );
 
