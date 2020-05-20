@@ -4,43 +4,43 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
 function formatName(user){
     return user.firstName +' '+user.lastName;
 }
 
-function greeting(user){
-    if(user)
-        return (
-                    <div>
-                        <h1 tabIndex="0">hello, {formatName(user)}</h1>
-                        <img src={user.avatarUrl}></img>
-                    </div>
-                  );
-     else
-        return (
-                    <h1>Hello Strangers</h1>
-                );
-}
 
 const user = {
     firstName: 'Sudhir',
     lastName: 'Kumar'
 };
-
 const element = <h1>Hello , {formatName(user)}</h1>;
-function tick() {
-    const element = (
+
+function Welcome(props){
+    return <h1> hello, {props.name}</h1>;
+}
+const compo = <Welcome name="Sara" />
+
+
+function Greet(props){
+    return <h1>Greeting of the day, {props.name}</h1>;
+}
+function ComposeComponent(){
+    return (
         <div>
-            <h2>Hello World</h2>
-            <h2>It is {new Date().toLocaleTimeString()}.</h2>
+            <Greet name="Sara" />
+            <Greet name="Chal" />
+            <Greet name="Eric" />
+            <Greet name="Emiliya" />
         </div>
     );
-    ReactDOM.render(element, document.getElementById('root'));
 }
 
-setInterval(tick, 1000);
+
+
+
 ReactDOM.render(
-  setInterval,
+  <ComposeComponent />,
   document.getElementById('root')
 );
 
