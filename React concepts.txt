@@ -1,0 +1,83 @@
+JSX =>
+	JSX is syntax extension to javaScript which produces React element.
+	It rendering the logics at one place instead rendering other UI logic.
+	Instead of articificially separating technologies by putting markup and logic in separate files, react separates logics/concerns with loosely coupled units called components and that JSX contain both.
+	use Quotes(") for String literals and user curly braces {} for javaScript Expression.
+
+	
+
+Rendering React elements =>
+	Redenring React elements (elemets are mainly immutable in React) can be done using ReactDom.render(param1, the tag element) .
+
+Components =>
+	components are like JavaScript function which accept arbitrary inputs(called props) and return React elements describing what should appear on the screen.
+
+
+State and life cycle method:
+	=> State is similar to props but it is private meaning fully controlled by respective components.
+	=> requirement: Whenever there is a requirement of changing DOM state, render() of a class use to render that DOM whenever its get updated.
+
+	=> Mounting => Whenever a component is render any DOM for first time then that action is called Mounting.
+	=> Unmounting => Whenevr the produced DOM is removed by that component who rendered it that action is called Unmounting.
+
+Life cycle method:
+
+	ComponentDidMount=> a life cycle method which runs after the component output has been redered to the DOM or after mounting.
+	
+
+
+Advance concept:
+	Bundling using Webpack.
+	Code splitting: it helps to achieve lazy-load feature
+	import: use dynamic import e.g:
+		import { add } from './math';
+		console.log(add(16, 26));
+
+		intead do: 
+			import("./math").then(math => {
+			  console.log(math.add(16, 26));
+			});
+
+	React.lazy = it gives flexibility to render dynamic import:
+		import OtherComponent from './OtherComponent';
+
+		instead do:
+			const OtherComponent = React.lazy(() => import('./OtherComponent'));
+			const OtherComponent = React.lazy(() => import('./OtherComponent'));
+	Error boundaries :
+
+		If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these 		errors to show a nice user experience and
+
+	
+	Route-based code splitting :
+		A good place to start is with routes. Most people on the web are used to page transitions taking some amount of time to load
+
+	Named export:
+		// ManyComponents.js
+				export const MyComponent = /* ... */;
+				export const MyUnusedComponent = /* ... */;
+
+	instead do this:
+		import React, { lazy } from 'react';
+		const MyComponent = lazy(() => import("./MyComponent.js"));
+
+
+
+Note:
+atom: button, label, basic html elem
+
+molecules: collection atoms represent Login Form
+
+organisims: collection of Molecules, 
+
+
+https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F14NmsDvBWys6sP7jtNDNyY7vWiLH1sw0F%2Fview
+
+identify atoms, molecules, organisims,
+
+
+
+	HOC=> Takes one component and returns anothe component
+		In larger App defeine the logic in one place and share it across many components
+
+
